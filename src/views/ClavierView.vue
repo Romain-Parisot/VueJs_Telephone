@@ -42,7 +42,6 @@ export default {
             this.$store.commit("addnumber", x)
         },
         call(currentnumber) {
-            console.log(currentnumber.length);
             if(currentnumber.length == 10) {
                 // récupére la date 
                 const date = new Date();
@@ -62,8 +61,7 @@ export default {
                 if(nom==null){
                     nom=currentnumber
                 }
-                let msg = nom + ' ' + currentdate;
-                this.$store.commit("msg", msg)
+                this.$store.commit("msg", [nom,currentdate] )
             }
         
         },

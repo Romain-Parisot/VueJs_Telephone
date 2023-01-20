@@ -3,7 +3,9 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     currentnumber:'',
-    journals: [],
+    journals: [
+
+    ],
     contacts: [
       {
         name: 'Pierre',
@@ -33,8 +35,8 @@ export default createStore({
         state.currentnumber+=x
       }
     },
-    msg(state, msg) {
-      state.journals.push(msg)
+    msg(state, data) {
+      state.journals.push([data[0],data[1]])
     }
   },
   actions: {

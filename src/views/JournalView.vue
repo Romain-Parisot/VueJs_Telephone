@@ -2,7 +2,8 @@
     <div class="journal">
         <h1>Journal</h1>
         <div v-for="journal in journals" :key="journal" class="journaldata">
-            <p>{{ journal }}</p>
+            <p>{{ journal[0] }}</p>
+            <p>{{ journal[1] }}</p>
             <button>Call</button>
         </div>
     </div>
@@ -15,6 +16,9 @@ export default {
             return this.$store.state.journals
         }
     },
+    methods: {
+        
+    }
 }
 </script>
 <style>
