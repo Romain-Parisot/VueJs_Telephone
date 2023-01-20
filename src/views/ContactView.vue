@@ -15,7 +15,7 @@
       <div class="contactdisplay">
         <h2>{{ contact.name }}</h2>
         <h2 class="numerocontact">{{ contact.numero }}</h2>
-        <button>Call</button>
+        <button @click="call(contact.name)">Call</button>
       </div>
     </div>
   </div>
@@ -58,7 +58,24 @@ export default {
                 name: "",
                 numero: ''
             };
-        }
+        },
+        call(currentnumber) {
+            console.log(currentnumber);
+            // récupére la date 
+            const date = new Date();
+            let day = date.getDate();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+            let hour = date.getHours();
+            let minute = date.getMinutes();
+            let currentdate = day + '/' + month + '/' + year + ' à ' + hour + ':' + minute;
+            // récupére le nom
+            let nom = currentnumber
+            
+            this.$store.commit("msg", [nom,currentdate] )
+            
+        
+        },
     },
   
 }
