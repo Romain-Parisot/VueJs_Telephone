@@ -8,6 +8,10 @@ export default {
     
 }
 </script>
-<style lang="">
-    
+<style>
+    .journal{
+        display: flex;
+        width: 40vw;
+        justify-content: center;
+    }
 </style>

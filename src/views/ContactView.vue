@@ -9,15 +9,16 @@
     <div class="error_div">
       <span v-if="this.formContact.name.length < 2 && error" class="error">Le nom du contact doit contenir au moins 3 caractére</span>
       <span v-if="this.contacts.find((contact) => contact.name == this.formContact.name)" class="error">Vous avez déjà enregistrer un contact avec ce nom</span>
-      <span v-if="this.formContact.numero > 10000000000 || this.formContact.numero < 999999999 && error" class="error">Le numéro de téléphone doit contenir 10 chiffres</span>
+      <span v-if="this.formContact.numero > 1000000000 || this.formContact.numero < 999999999 && error" class="error">Le numéro de téléphone doit contenir 10 chiffres</span>
+    </div>
+    <div v-for="contact in contacts" :key="contact.name">
+      <div class="contactdisplay">
+        <h2>{{ contact.name }}</h2>
+        <h2 class="numerocontact">{{ contact.numero }}</h2>
+        <button>Call</button>
+      </div>
     </div>
   </div>
-  <div v-for="contact in contacts" :key="contact.name">
-		<div>
-			<h2>{{ contact.name }}</h2>
-			<h2>{{ contact.numero }}</h2>
-		</div>
-	</div>
 </template>
 <script>
 export default {
@@ -70,4 +71,21 @@ export default {
     display: flex;
     flex-direction: column;
   }
+  .contact{
+    width: 40vw;
+  }
+  .contactdisplay{
+    display: flex;
+    border-bottom: solid 2px orange;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  .numerocontact{
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: grey;
+  }
+
 </style>

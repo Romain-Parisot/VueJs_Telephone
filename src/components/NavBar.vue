@@ -13,5 +13,24 @@ export default {
 }
 </script>
 <style>
-    
+nav{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 10vw;
+    justify-content: center;
+    align-items: center;
+}
+a{
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px orange;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+}
+
 </style>

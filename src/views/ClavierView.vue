@@ -2,20 +2,30 @@
     <div class="clavier">
         <h1>Clavier</h1>
         <div class="pad">
-            <form @submit.prevent="call">
-                <button @click="addnumber(1), namecontact(currentnumber)">1</button>
-                <button @click="addnumber(3), namecontact(currentnumber)">3</button>
-                <button @click="addnumber(4), namecontact(currentnumber)">4</button>
-                <button @click="addnumber(2), namecontact(currentnumber)">2</button>
-                <button @click="addnumber(5), namecontact(currentnumber)">5</button>
-                <button @click="addnumber(6), namecontact(currentnumber)">6</button>
-                <button @click="addnumber(7), namecontact(currentnumber)">7</button>
-                <button @click="addnumber(8), namecontact(currentnumber)">8</button>
-                <button @click="addnumber(9), namecontact(currentnumber)">9</button>
-                <button @click="addnumber(0), namecontact(currentnumber)">0</button>
-                <button type="submit">Appeler</button>
+            <form @submit.prevent="call" class="formclavier">
+                <div class="clavierrow">
+                    <button class="btclavier" @click="addnumber(1)">1</button>
+                    <button class="btclavier" @click="addnumber(2)">2</button>
+                    <button class="btclavier" @click="addnumber(3)">3</button>
+                </div>
+                <div class="clavierrow">
+                    <button class="btclavier" @click="addnumber(4)">4</button>
+                    <button class="btclavier" @click="addnumber(5)">5</button>
+                    <button class="btclavier" @click="addnumber(6)">6</button>
+                </div>
+                <div class="clavierrow">
+                    <button class="btclavier" @click="addnumber(7)">7</button>
+                    <button class="btclavier" @click="addnumber(8)">8</button>
+                    <button class="btclavier" @click="addnumber(9)">9</button>
+                </div>
+                <div>
+                    <button class="btclavier" @click="addnumber(0)">0</button>
+                </div>
+                <button type="submit" class="appelerbt">Appeler</button>
             </form>
-            <h2>numéro: {{ currentnumber }}</h2>
+        </div>
+        <div class="namenumber">
+            <h2>Numéro: {{ currentnumber }}</h2>
             <div v-for="contact in contacts" :key="contact.name">
                 <div v-if="contact.numero == currentnumber">
                     <p>{{ contact.name }}</p>
@@ -34,13 +44,13 @@ export default {
         call() {
 
         },
-        namecontact(currentnumber) {
-            this.contacts.forEach(c => {
-                    if(c.numero == currentnumber) {
-                        return c.name
-                    }
-                });
-        }
+        // namecontact(currentnumber) {
+        //     this.contacts.forEach(c => {
+        //             if(c.numero == currentnumber) {
+        //                 return c.name
+        //             }
+        //         });
+        // }
     },
     computed: {
         currentnumber() {
@@ -55,7 +65,32 @@ export default {
 </script>
 <style>
     .pad{
+        display: flex;
+        justify-content: center;
 
+    }
+    .formclavier{
+        display: grid;
+        gap: 10px;
+    }
+    .btclavier{
+        width: 40px;
+        height: 40px;
+        background-color: orange;
+    }
+    .appelerbt{
+        background-color: orange;
+    }
+    .clavierrow{
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .clavier{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 40vw;
     }
 
 </style>

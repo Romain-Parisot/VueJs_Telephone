@@ -1,7 +1,5 @@
 <template>
-  <div id="app">
-    <NavBar />
-  </div>
+  <NavBar />
 </template>
 
 <script>
@@ -22,18 +20,12 @@ import NavBar from '@/components/NavBar'
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#app{
   border: solid 2px orange;
   width: 50vw;
+  height: 70vh;
   margin-left: 50%;
-  transform: translatex(-50%);
-}
-
-nav{
+  transform: translateX(-50%);
   display: flex;
-  flex-direction: column;
 }
 
 
