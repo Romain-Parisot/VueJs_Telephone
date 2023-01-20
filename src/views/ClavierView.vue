@@ -2,7 +2,7 @@
     <div class="clavier">
         <h1>Clavier</h1>
         <div class="pad">
-            <form @submit.prevent="call" class="formclavier">
+            <form class="formclavier">
                 <div class="clavierrow">
                     <button class="btclavier" @click="addnumber(1)">1</button>
                     <button class="btclavier" @click="addnumber(2)">2</button>
@@ -21,7 +21,7 @@
                 <div>
                     <button class="btclavier" @click="addnumber(0)">0</button>
                 </div>
-                <button type="submit" class="appelerbt">Appeler</button>
+                <button type="submit" class="appelerbt" @click="call(currentnumber)">Appeler</button>
             </form>
         </div>
         <div class="namenumber">
@@ -41,16 +41,33 @@ export default {
         addnumber(x) {
             this.$store.commit("addnumber", x)
         },
-        call() {
-
+        call(currentnumber) {
+            console.log(currentnumber.length);
+            if(currentnumber.length == 10) {
+                // récupére la date 
+                const date = new Date();
+                let day = date.getDate();
+                let month = date.getMonth() + 1;
+                let year = date.getFullYear();
+                let hour = date.getHours();
+                let minute = date.getMinutes();
+                let currentdate = day + '/' + month + '/' + year + ' à ' + hour + ':' + minute;
+                // récupére le nom
+                let nom = null
+                this.contacts.forEach(c => {
+                    if(c.numero == currentnumber) {
+                        nom = c.name
+                    }
+                });
+                if(nom==null){
+                    nom=currentnumber
+                }
+                let msg = nom + ' ' + currentdate;
+                this.$store.commit("msg", msg)
+            }
+        
         },
-        // namecontact(currentnumber) {
-        //     this.contacts.forEach(c => {
-        //             if(c.numero == currentnumber) {
-        //                 return c.name
-        //             }
-        //         });
-        // }
+        
     },
     computed: {
         currentnumber() {
