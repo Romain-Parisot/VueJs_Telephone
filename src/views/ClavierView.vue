@@ -24,7 +24,7 @@ export default {
     name: "ClavierForm",
     methods: {
         addnumber(x) {
-            this.addnumber(x) 
+            this.$store.commit("addnumber", x)
         },
         call() {
 
@@ -34,7 +34,7 @@ export default {
         currentnumber() {
             return this.$store.state.currentnumber
         }
-    },
+    }
     
 }
 </script>

@@ -24,8 +24,17 @@ import NavBar from '@/components/NavBar'
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+#app{
+  border: solid 2px orange;
+  width: 50vw;
+  margin-left: 50%;
+  transform: translatex(-50%);
 }
+
+nav{
+  display: flex;
+  flex-direction: column;
+}
+
 
 </style>
